@@ -188,6 +188,41 @@
         "car",
         "truck",
       ];
+
+      const sum = data.reduce(
+        (acc, cur) => {
+          if (cur === "car") {
+            acc.car += 1;
+          } else if (cur === "truck") {
+            acc.truck += 1;
+          } else if (cur === "bike") {
+            acc.bike += 1;
+          } else if (cur === "walk") {
+            acc.walk += 1;
+          } else if (cur === "van") {
+            acc.van += 1;
+          }
+          return acc;
+        },
+        {
+          car: 0,
+          truck: 0,
+          bike: 0,
+          walk: 0,
+          van: 0,
+        }
+      );
+      console.log(sum);
+
+      // clean way
+      const transportation = data.reduce((obj, item) => {
+        if (!obj[item]) {
+          obj[item] = 0;
+        }
+        obj[item]++;
+        return obj;
+      }, {});
+      console.log(transportation);
     </script>
   </body>
 </html>
